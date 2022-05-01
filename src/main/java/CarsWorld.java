@@ -932,32 +932,6 @@ public class CarsWorld extends Application {
         }
     }
 
-    public static boolean isLeaf(Node node) {
-        return node.left == null && node.right == null;
-    }
-
-    public static int process(String op, int x, int y) {
-        if (Objects.equals(op, "+")) {
-            return x + y;
-        }
-        return 0;
-    }
-
-    public static int evaluate(Node root) {
-        if (root == null) {
-            return 0;
-        }
-
-        if (isLeaf(root)) {
-            return Integer.parseInt(root.val);
-        }
-
-        int x = evaluate(root.left);
-        int y = evaluate(root.right);
-
-        return process(root.val, x, y);
-    }
-
     public static void main(String[] args) {
         launch(args);
     }
