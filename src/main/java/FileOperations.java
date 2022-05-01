@@ -1,11 +1,10 @@
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
-
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 public class FileOperations {
     AlertBoxes ab = new AlertBoxes();
@@ -16,12 +15,10 @@ public class FileOperations {
             Scanner sc = new Scanner(new File(FileName));
 
             while (sc.hasNext()) {
-                String tempUser = user;
-                String tempPass = pass;
                 String checkUser = sc.next();
                 String CheckPass = sc.next();
 
-                if (tempUser.equals(checkUser) && tempPass.equals(CheckPass)) {
+                if (user.equals(checkUser) && pass.equals(CheckPass)) {
                     isTrue = true;
                 }
             }
@@ -29,9 +26,9 @@ public class FileOperations {
             sc.close();
         } catch (FileNotFoundException e) {
             Alert errorAlert = new Alert(AlertType.ERROR);
-            errorAlert.setTitle("Error 101: An error occured!");
+            errorAlert.setTitle("Error 101: An error occurred!");
             errorAlert.setHeaderText(null);
-            errorAlert.setContentText("Oops! Error has occured.");
+            errorAlert.setContentText("Oops! Error has occurred.");
             errorAlert.showAndWait();
         }
         return isTrue;
@@ -49,9 +46,9 @@ public class FileOperations {
             bw.close();
         } catch (IOException e) {
             Alert errorAlert = new Alert(AlertType.ERROR);
-            errorAlert.setTitle("Error 102: An error occured!2");
+            errorAlert.setTitle("Error 102: An error occurred!");
             errorAlert.setHeaderText(null);
-            errorAlert.setContentText("Oops! Error has occured.");
+            errorAlert.setContentText("Oops! Error has occurred.");
             errorAlert.showAndWait();
         }
     }
@@ -68,7 +65,7 @@ public class FileOperations {
             bw.close();
         } catch (IOException e) {
             Alert errorAlert = new Alert(AlertType.ERROR);
-            errorAlert.setTitle("Error 103: An error occurred!3");
+            errorAlert.setTitle("Error 103: An error occurred!");
             errorAlert.setHeaderText(null);
             errorAlert.setContentText("Oops! Error has occurred.");
             errorAlert.showAndWait();
@@ -79,7 +76,7 @@ public class FileOperations {
         try {
             String input = null;
             File tempFile = new File(FileName);
-            File inputFile = new File("carddetails.txt");
+            File inputFile = new File("src\\main\\resources\\cardetails.txt");
             Scanner sc = new Scanner(tempFile);
             FileWriter fw = new FileWriter(inputFile, false);
             Set<String> set = new HashSet<String>();
@@ -117,7 +114,7 @@ public class FileOperations {
 
             reader.close();
             Collections.sort(str);
-            FileWriter writer = new FileWriter("tempcardetails.txt");
+            FileWriter writer = new FileWriter("src\\main\\resources\\tempcardetails.txt");
 
             for (String s : str) {
                 writer.write(s);
@@ -125,7 +122,7 @@ public class FileOperations {
             }
 
             writer.close();
-            DeleteDuplicateData("tempcardetails.txt");
+            DeleteDuplicateData("src\\main\\resources\\tempcardetails.txt");
         } catch (Exception e) {
             Alert errorAlert = new Alert(AlertType.ERROR);
             errorAlert.setTitle("Error 105: An Error Occurred");

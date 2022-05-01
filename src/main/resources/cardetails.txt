@@ -1,0 +1,3 @@
+Honda,Civic,Sedan,2022,10000000000
+Honda,Civic,Sedan,2022,10000000000
+Toyota,Prado,SUV,2015,220000
